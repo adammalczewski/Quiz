@@ -1,0 +1,4 @@
+#define BUTTON 3000
+#define SELBUTTON 3001
+#define BIGBUTTON 3002
+#define BIGSELBUTTON 3003

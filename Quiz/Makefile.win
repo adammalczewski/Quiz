@@ -1,0 +1,45 @@
+# Project: Quiz
+# Makefile created by Dev-C++ 5.1.0.0
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = Temp/Quiz_private.res
+OBJ      = Temp/main.o Temp/ClientButton.o Temp/engine.o Temp/Questions.o Temp/TTestForm.o $(RES)
+LINKOBJ  = Temp/main.o Temp/ClientButton.o Temp/engine.o Temp/Questions.o Temp/TTestForm.o $(RES)
+LIBS     = -L"D:/Program Files/Dev-Cpp/MinGW32/lib" -static-libstdc++ -static-libgcc -mwindows C:/Dev-Cpp/lib/libcomctl32.a C:/Dev-Cpp/lib/libpsapi.a  
+INCS     = -I"D:/Program Files/Dev-Cpp/MinGW32/include" 
+CXXINCS  = -I"D:/Program Files/Dev-Cpp/MinGW32/include" 
+BIN      = Executable/Quiz.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS   = $(INCS)  
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before Executable/Quiz.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "Executable\Quiz.exe" $(LIBS)
+
+Temp/main.o: main.cpp
+	$(CPP) -c main.cpp -o Temp/main.o $(CXXFLAGS)
+
+Temp/ClientButton.o: ClientButton.cpp
+	$(CPP) -c ClientButton.cpp -o Temp/ClientButton.o $(CXXFLAGS)
+
+Temp/engine.o: engine.cpp
+	$(CPP) -c engine.cpp -o Temp/engine.o $(CXXFLAGS)
+
+Temp/Questions.o: Questions.cpp
+	$(CPP) -c Questions.cpp -o Temp/Questions.o $(CXXFLAGS)
+
+Temp/TTestForm.o: TTestForm.cpp
+	$(CPP) -c TTestForm.cpp -o Temp/TTestForm.o $(CXXFLAGS)
+
+Temp/Quiz_private.res: Quiz_private.rc 
+	$(WINDRES) -i Quiz_private.rc --input-format=rc -o Temp/Quiz_private.res -O coff 

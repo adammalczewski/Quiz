@@ -1,0 +1,6 @@
+#include "ClientButtonRes.h"
+
+BUTTON BITMAP "Resources/ClientButton.bmp"
+SELBUTTON BITMAP "Resources/SelClientButton.bmp"
+BIGBUTTON BITMAP "Resources/ClientButtonBig.bmp"
+BIGSELBUTTON BITMAP "Resources/SelClientButtonBig.bmp"
